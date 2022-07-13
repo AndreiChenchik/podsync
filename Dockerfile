@@ -17,6 +17,5 @@ RUN wget -O /usr/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/dow
     apk --no-cache add ca-certificates python3 py3-pip ffmpeg tzdata
 
 COPY --from=builder /usr/local/bin/podsync /usr/local/bin/podsync
-COPY config.toml /etc/config.toml
 ENTRYPOINT ["podsync"]
 CMD ["--no-banner", "--config", "/etc/config.toml"]
